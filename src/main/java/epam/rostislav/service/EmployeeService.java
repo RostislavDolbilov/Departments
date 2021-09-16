@@ -48,7 +48,7 @@ public class EmployeeService extends AppConnection implements EmployerDao {
     }
 
     @Override
-    public EmployeeInfo getEmployeeById(int id) throws SQLException {
+    public EmployeeInfo getEmployeeInfoById(int id) throws SQLException {
         EmployeeInfo employee = new EmployeeInfo();
         try (Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery("SELECT * FROM employees WHERE id = " + id);
@@ -74,10 +74,24 @@ public class EmployeeService extends AppConnection implements EmployerDao {
         return employee;
     }
 
-    @Override
-    public void giveManagerStatus(int employeeId) {
-
-    }
+//    @Override
+//    public void giveManagerStatus(int id) throws SQLException {
+//        Employee employee;
+//        try {
+//            employee = getEmployeeById(id);
+//            PreparedStatement preparedStatement =
+//                    connection.prepareStatement("UPDATE employees SET manager = ? WHERE id = " + id); {
+//                if (!employee.isManager()){
+//                    preparedStatement.setBoolean(1, true);
+//                }
+//
+//                preparedStatement.executeUpdate();
+//            }
+//        } catch (SQLException e) {
+//            connection.close();
+//            e.printStackTrace();
+//        }
+//    }
 
     @Override
     public ArrayList<Employee> getAllEmployees() throws SQLException {
@@ -108,5 +122,32 @@ public class EmployeeService extends AppConnection implements EmployerDao {
             e.printStackTrace();
         }
         return employeesList;
+    }
+
+    @Override
+    public Employee getEmployeeById(int id) throws SQLException {
+        Employee employee = new Employee();
+        try (Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM employees WHERE id = " + id);
+            while (resultSet.next()) {
+                employee.setId(resultSet.getInt("id"));
+                employee.setName(resultSet.getString("name"));
+                employee.setSurname(resultSet.getString("surname"));
+                employee.setPatronymic(resultSet.getString("patronymic"));
+                employee.setGender(resultSet.getBoolean("gender"));
+                employee.setBerthDay(resultSet.getDate("berth_day"));
+                employee.setPhoneNumber(resultSet.getString("phone_number"));
+                employee.setEmail(resultSet.getString("email"));
+                employee.setEmploymentDate(resultSet.getDate("employment_date"));
+                employee.setDismissalDate(resultSet.getDate("dismissal_date"));
+                employee.setPositionId(resultSet.getInt("position_id"));
+                employee.setSalary(resultSet.getDouble("salary"));
+                employee.setManager(resultSet.getBoolean("manager"));
+            }
+        } catch (SQLException e) {
+            connection.close();
+            e.printStackTrace();
+        }
+        return employee;
     }
 }
