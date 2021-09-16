@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/main/java/epam/rostislav/service/PositionService.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/v-1.0/01-create-employees-table.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/v-1.0/01-drop-employees-table.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/v-2.0/02-fill-employees-table.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/changelog/v-2.0/02-fill-position-table.sql" dialect="GenericSQL" />
+    <file url="PROJECT" dialect="PostgreSQL" />
+  </component>
+</project>
