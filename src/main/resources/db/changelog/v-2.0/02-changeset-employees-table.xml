@@ -11,14 +11,14 @@
                  relativeToChangelogFile="true"
                  splitStatements="true"
                  stripComments="true"
-                 path="02-fill-employees-table.sql"/>
+                 path="changeSet/02-fill-employees-table.sql"/>
         <rollback>
             <sqlFile dbms="postgresql"
                      encoding="utf8"
                      relativeToChangelogFile="true"
                      splitStatements="true"
                      stripComments="true"
-                     path="02-clear-employees-table.sql"/>
+                     path="rollback/02-clear-employees-table.sql"/>
         </rollback>
     </changeSet>
 

@@ -6,6 +6,7 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <include file="01-changeset-position-table.xml" relativeToChangelogFile="true"/>
-    <include file="10-changeset-employees-table.xml" relativeToChangelogFile="true"/>
+    <include file="01-changeset-employees-table.xml" relativeToChangelogFile="true"/>
+    <include file="01-changeset-departments-table.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

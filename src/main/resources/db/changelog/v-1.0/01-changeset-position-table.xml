@@ -11,14 +11,14 @@
                  relativeToChangelogFile="true"
                  splitStatements="true"
                  stripComments="true"
-                 path="01-create-position-table.sql"/>
+                 path="changeSet/01-create-position-table.sql"/>
         <rollback>
             <sqlFile dbms="postgresql"
                      encoding="utf8"
                      relativeToChangelogFile="true"
                      splitStatements="true"
                      stripComments="true"
-                     path="01-drop-position-table.sql"/>
+                     path="rollback/01-drop-position-table.sql"/>
         </rollback>
     </changeSet>
 
